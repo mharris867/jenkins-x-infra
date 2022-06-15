@@ -5,7 +5,7 @@ variable "cluster_name" {
 }
 variable "location" {
   type        = string
-  default     = "australiaeast"
+  default     = "westus"
   description = "The Azure region in to which to provision the cluster"
 }
 
@@ -52,22 +52,22 @@ variable "dns_prefix" {
 }
 variable "cluster_version" {
   type        = string
-  default     = "1.20.7"
+  default     = "1.21.7"
   description = "Kubernetes version to use for the AKS cluster"
 }
 variable "network_resource_group_name" {
   type        = string
-  default     = ""
+  default     = "jenkins-x"
   description = "The name of the resource group in to which to provision network resources. The script will create a random name if this is empty"
 }
 variable "cluster_resource_group_name" {
   type        = string
-  default     = ""
+  default     = "jenkins-x"
   description = "The name of the resource group in to which to provision AKS managed cluster. The script will create a random name if this is empty"
 }
 variable "cluster_node_resource_group_name" {
   type        = string
-  default     = ""
+  default     = "jenkins-x-node"
   description = "Resource group name in which to provision AKS cluster nodes. The script will create a random name if this is empty"
 }
 variable "vnet_cidr" {
@@ -128,12 +128,12 @@ variable "subdomain" {
 variable "apex_resource_group_name" {
   type        = string
   description = "The resource group in which the Azure DNS apex domain resides. Required if apex_domain_integration_enabled is true"
-  default     = ""
+  default     = "jenkins-x-apex"
 }
 variable "dns_resource_group_name" {
   type        = string
   description = "Resource group in which to create the Azure DNS zone. The script will create a random name if this is empty"
-  default     = ""
+  default     = "jenkins-x"
 }
 
 // ----------------------------------------------------------------------------
@@ -148,7 +148,7 @@ variable "key_vault_enabled" {
 variable "key_vault_resource_group_name" {
   type        = string
   description = "Resource group to create in which to place key vault"
-  default     = ""
+  default     = "jenkins-x"
 }
 variable "key_vault_name" {
   type        = string
@@ -167,7 +167,7 @@ variable "key_vault_sku" {
 // ---------------------------------------------------------------------------
 variable "registry_resource_group_name" {
   type        = string
-  default     = ""
+  default     = "jenkins-x"
   description = "The name of the resource group in to which to provision ACR managed registry. The script will create a random name if this is empty"
 }
 
@@ -191,5 +191,5 @@ variable "use_existing_acr_resource_group_name" {
 variable "storage_resource_group_name" {
   type        = string
   description = "Resource group to create in which to place storage accounts"
-  default     = ""
+  default     = "jenkins-x"
 }
